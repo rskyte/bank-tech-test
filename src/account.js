@@ -20,3 +20,7 @@ Account.prototype.applyTransaction = function(transaction, type) {
   this.balance += amount;
   transaction.addBalance(this.balance)
 };
+
+Account.prototype.printStatement = function() {
+  this.accountLog.printStatement();
+};
