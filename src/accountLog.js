@@ -11,14 +11,23 @@ AccountLog.prototype.addWithdrawal = function(withdrawal) {
   this.withdrawals.push(withdrawal);
 };
 
-AccountLog.prototype.makeDeposit = function(amount, date) {
-  var deposit = new Deposit(amount, date);
+AccountLog.prototype.makeDeposit = function(amount, dateAsString) {
+  var deposit = new Deposit(amount, dateAsString);
   this.addDeposit(deposit);
   return deposit;
 };
 
-AccountLog.prototype.makeWithdrawal = function(amount, date) {
-  var withdrawal = new Withdrawal(amount, date);
+AccountLog.prototype.makeWithdrawal = function(amount, dateAsString) {
+  var withdrawal = new Withdrawal(amount, dateAsString);
   this.addWithdrawal(withdrawal);
   return withdrawal;
+};
+
+AccountLog.prototype.printStatement = function(printer = new Printer()) {
+  var orderedTransactions = this.formatTransactions();
+  printer.printStatement(orderedTransactions)
+};
+
+AccountLog.prototype.orderTransactions = function() {
+  this.deposits.concat(this.withdrawals);
 };

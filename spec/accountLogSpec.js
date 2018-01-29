@@ -24,4 +24,16 @@ describe("AccountLog", function() {
   it("can create withdrawals", function() {
     expect(accountLog.makeWithdrawal(3, "29-1-2018")).toEqual(jasmine.any(Withdrawal));
   });
+
+  it("asks printer to print a bank statement", function() {
+    var printer = jasmine.createSpyObj('myPrinter', ['printStatement']);
+    accountLog.printStatement(printer);
+    expect(printer.printStatement).toHaveBeenCalled();
+  });
+
+  it("orders transactions by date", function() {
+    var laterDeposit = accountLog.makeDeposit(3, "29-1-2018")
+    var earlierDeposit = accountLog.makeDeposit(3, "26-1-2018")
+    expect(accountLog.formatTransactions()).toEqual([earlierDeposit, laterDeposit])
+  })
 });
