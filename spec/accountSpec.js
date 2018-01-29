@@ -1,9 +1,11 @@
 describe("Account", function() {
   var account;
   var accountLog;
+  var transaction;
 
   beforeEach(function() {
-    accountLog = { addDeposit: function(){}, addWithdrawal: function(){} }
+    transaction = function(amount, date) { return {'amount': amount } }
+    accountLog = { makeDeposit: transaction, makeWithdrawal: transaction }
     account = new Account(accountLog);
   });
 

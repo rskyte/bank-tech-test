@@ -6,18 +6,18 @@ function Account(accountLog = new AccountLog()) {
 };
 
 Account.prototype.deposit = function(amount, date) {
-  var deposit = new Deposit(amount, date);
-  this.accountLog.addDeposit(deposit);
+  var deposit = this.accountLog.makeDeposit(amount, date);
   this.applyTransaction(deposit, "deposit");
 };
 
 Account.prototype.withdraw = function(amount, date) {
-  var withdrawal = new Withdrawal(amount, date);
-  this.accountLog.addWithdrawal(withdrawal);
+  var withdrawal = this.accountLog.makeWithdrawal(amount, date);
   this.applyTransaction(withdrawal, "withdraw");
 };
 
 Account.prototype.applyTransaction = function(transaction, type) {
-  var amount = type == "deposit" ? transaction.amount : -transaction.amount;
+  console.log(transaction)
+  var amount = (type == "deposit" ? transaction.amount : -transaction.amount);
+  console.log(amount)
   this.balance += amount;
 };

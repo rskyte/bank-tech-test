@@ -16,4 +16,12 @@ describe("AccountLog", function() {
     accountLog.addWithdrawal(withdrawal);
     expect(accountLog.withdrawals[0]).toEqual('withdrawal');
   });
-})
+
+  it("can create deposits", function() {
+    expect(accountLog.makeDeposit(3, "29-1-2018")).toEqual(jasmine.any(Deposit));
+  });
+
+  it("can create withdrawals", function() {
+    expect(accountLog.makeWithdrawal(3, "29-1-2018")).toEqual(jasmine.any(Withdrawal));
+  });
+});
