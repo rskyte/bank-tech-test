@@ -1,14 +1,8 @@
-function Deposit(amount, dateAsString) {
+function Deposit(amount, date = new Date()) {
   this.amount = amount;
-  this.date = this.formatDate(dateAsString);
+  this.date = date;
   this.balance;
 };
-
-Deposit.prototype.formatDate = function(dateAsString) {
-  var parts = dateAsString.split('-');
-  var date = new Date(parts[2], parts[1] - 1, parts[0]);
-  return date
-}
 
 Deposit.prototype.addBalance = function(num) {
   this.balance = num;

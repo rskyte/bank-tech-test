@@ -18,11 +18,11 @@ describe("AccountLog", function() {
   });
 
   it("can create deposits", function() {
-    expect(accountLog.makeDeposit(3, "29-1-2018")).toEqual(jasmine.any(Deposit));
+    expect(accountLog.makeDeposit(3)).toEqual(jasmine.any(Deposit));
   });
 
   it("can create withdrawals", function() {
-    expect(accountLog.makeWithdrawal(3, "29-1-2018")).toEqual(jasmine.any(Withdrawal));
+    expect(accountLog.makeWithdrawal(3)).toEqual(jasmine.any(Withdrawal));
   });
 
   it("asks printer to print a bank statement", function() {
@@ -32,8 +32,8 @@ describe("AccountLog", function() {
   });
 
   it("orders transactions by date", function() {
-    var laterDeposit = accountLog.makeDeposit(3, "29-1-2018")
-    var earlierDeposit = accountLog.makeDeposit(3, "26-1-2018")
+    var laterDeposit = accountLog.makeDeposit(3)
+    var earlierDeposit = accountLog.makeDeposit(3, new Date(2018,0,26))
     expect(accountLog.orderTransactions()).toEqual([earlierDeposit, laterDeposit])
   })
 });

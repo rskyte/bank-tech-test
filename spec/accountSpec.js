@@ -15,13 +15,13 @@ describe("Account", function() {
   });
 
   it("can make deposits", function() {
-    account.deposit(3, "19-2-2017");
+    account.deposit(3);
     expect(account.balance).toEqual(3);
   })
 
   it("can make withdrawals", function() {
-    account.deposit(5, "19-2-2017");
-    account.withdraw(2, "19-2-2017");
+    account.deposit(5);
+    account.withdraw(2);
     expect(account.balance).toEqual(3);
   });
 });

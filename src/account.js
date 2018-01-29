@@ -5,13 +5,13 @@ function Account(accountLog = new AccountLog()) {
   this.accountLog = accountLog;
 };
 
-Account.prototype.deposit = function(amount, dateAsString) {
-  var deposit = this.accountLog.makeDeposit(amount, dateAsString);
+Account.prototype.deposit = function(amount) {
+  var deposit = this.accountLog.makeDeposit(amount);
   this.applyTransaction(deposit, "deposit");
 };
 
-Account.prototype.withdraw = function(amount, dateAsString) {
-  var withdrawal = this.accountLog.makeWithdrawal(amount, dateAsString);
+Account.prototype.withdraw = function(amount) {
+  var withdrawal = this.accountLog.makeWithdrawal(amount);
   this.applyTransaction(withdrawal, "withdraw");
 };
 
