@@ -9,5 +9,10 @@ describe("Account", function() {
     expect(account.balance).toEqual(0);
   });
 
+  it("can make deposits", function() {
+    account.deposit(3, "19-2-2017");
+    expect(account.balance).toEqual(3);
+  })
+
 
 });
