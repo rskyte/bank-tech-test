@@ -14,5 +14,10 @@ describe("Account", function() {
     expect(account.balance).toEqual(3);
   })
 
+  it("can make withdrawals", function() {
+    account.deposit(5, "19-2-2017");
+    account.withdraw(2, "19-2-2017");
+    expect(account.balance).toEqual(3);
+  });
 
 });
