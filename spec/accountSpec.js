@@ -4,7 +4,8 @@ describe("Account", function() {
   var transaction;
 
   beforeEach(function() {
-    transaction = function(amount, dateAsString) { return {'amount': amount } }
+    transaction = function(amount, dateAsString) { return { 'amount': amount,
+                                                            addBalance: function(){} } }
     accountLog = { makeDeposit: transaction, makeWithdrawal: transaction }
     account = new Account(accountLog);
   });

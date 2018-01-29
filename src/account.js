@@ -18,4 +18,5 @@ Account.prototype.withdraw = function(amount, dateAsString) {
 Account.prototype.applyTransaction = function(transaction, type) {
   var amount = (type == "deposit" ? transaction.amount : -transaction.amount);
   this.balance += amount;
+  transaction.addBalance(this.balance)
 };

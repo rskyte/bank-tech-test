@@ -13,4 +13,9 @@ describe("Withdrawal", function() {
   it("turns date string into date object", function(){
     expect(withdrawal.date).toEqual(jasmine.any(Date));
   });
+
+  it("can add a balance attribute", function(){
+    withdrawal.addBalance(10);
+    expect(withdrawal.balance).toEqual(10);
+  });
 });
