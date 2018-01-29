@@ -30,4 +30,9 @@ AccountLog.prototype.printStatement = function(printer = new Printer()) {
 
 AccountLog.prototype.orderTransactions = function() {
   var transactions = this.deposits.concat(this.withdrawals);
+  transactions.sort(function(a, b) {
+    var dateA = a.date, dateB = b.date;
+    return dateA - dateB;
+  });
+  return transactions
 };
