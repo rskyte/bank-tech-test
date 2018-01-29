@@ -4,12 +4,16 @@ describe("Account", function() {
   var transaction;
 
   beforeEach(function() {
-    transaction = function(amount, dateAsString) { return { 'amount': amount,
-                                                            addBalance: function(){} } };
-    accountLog = { makeDeposit: transaction,
-                   makeWithdrawal: transaction,
+    creditTransaction = function(amount, dateAsString) { return { "amount": amount,
+                                                            addBalance: function(){},
+                                                            "type": "credit" } };
+    debitTransaction = function(amount, dateAsString) { return { "amount": amount,
+                                                                  addBalance: function(){},
+                                                                  "type": "debit" } };
+    accountLog = { makeDeposit: creditTransaction,
+                   makeWithdrawal: debitTransaction,
                    printStatement: function(){} };
-    jasmine.createSpy('accountLog', 'printStatement');
+    jasmine.createSpy("accountLog", "printStatement");
     account = new Account(accountLog);
   });
 
