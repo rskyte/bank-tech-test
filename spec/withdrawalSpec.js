@@ -7,7 +7,7 @@ describe("Withdrawal", function() {
 
   it("is created with an amount and a date", function(){
     expect(withdrawal.amount).toEqual(10);
-    expect(withdrawal.date).toEqual(Mon Jan 29 2018 00:00:00 GMT+0000 (GMT));
+    expect(withdrawal.date).toEqual(new Date(2018,0,29));
   });
 
   it("turns date string into date object", function(){

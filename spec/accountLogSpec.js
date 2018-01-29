@@ -34,6 +34,6 @@ describe("AccountLog", function() {
   it("orders transactions by date", function() {
     var laterDeposit = accountLog.makeDeposit(3, "29-1-2018")
     var earlierDeposit = accountLog.makeDeposit(3, "26-1-2018")
-    expect(accountLog.formatTransactions()).toEqual([earlierDeposit, laterDeposit])
+    expect(accountLog.orderTransactions()).toEqual([earlierDeposit, laterDeposit])
   })
 });

@@ -24,10 +24,10 @@ AccountLog.prototype.makeWithdrawal = function(amount, dateAsString) {
 };
 
 AccountLog.prototype.printStatement = function(printer = new Printer()) {
-  var orderedTransactions = this.formatTransactions();
+  var orderedTransactions = this.orderTransactions();
   printer.printStatement(orderedTransactions)
 };
 
 AccountLog.prototype.orderTransactions = function() {
-  this.deposits.concat(this.withdrawals);
+  var transactions = this.deposits.concat(this.withdrawals);
 };
