@@ -1,8 +1,10 @@
 describe("Account", function() {
   var account;
+  var accountLog;
 
   beforeEach(function() {
-    account = new Account();
+    accountLog = { addDeposit: function(){}, addWithdrawal: function(){} }
+    account = new Account(accountLog);
   });
 
   it("should have a balance which begins at 0", function() {
@@ -19,5 +21,4 @@ describe("Account", function() {
     account.withdraw(2, "19-2-2017");
     expect(account.balance).toEqual(3);
   });
-
 });

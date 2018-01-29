@@ -6,13 +6,13 @@ describe("AccountLog", function() {
   });
 
   it("can add deposits", function() {
-    var deposit = 'deposit'
+    var deposit = 'deposit';
     accountLog.addDeposit(deposit);
     expect(accountLog.deposits[0]).toEqual('deposit');
   });
 
   it("can add withdrawals", function() {
-    var withdrawal = 'withdrawal'
+    var withdrawal = 'withdrawal';
     accountLog.addWithdrawal(withdrawal);
     expect(accountLog.withdrawals[0]).toEqual('withdrawal');
   });
